@@ -18,7 +18,7 @@
             app:destination="@id/byActivityViewModelsFragment" />
         <action
             android:id="@+id/action_mainFragment_to_navigation_sub_navgraph"
-            app:destination="@id/navigation_sub_navgraph" />
+            app:destination="@id/sub_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/byViewModelsFragment"
@@ -30,21 +30,8 @@
         android:name="com.example.navgraphviewmodelproject.activityViewModels.ActivityViewModelsFragment"
         android:label="fragment_by_activity_view_models"
         tools:layout="@layout/fragment_activity_view_models" />
-    <navigation android:id="@+id/navigation_sub_navgraph"
-        app:startDestination="@id/byNavGraphViewModelsFragment">
-        <fragment
-            android:id="@+id/byNavGraphViewModelsFragment"
-            android:name="com.example.navgraphviewmodelproject.navGraphViewModels.NavGraphViewModelsFragment"
-            android:label="fragment_by_nav_graph_view_models"
-            tools:layout="@layout/fragment_nav_graph_view_models" >
-            <action
-                android:id="@+id/action_byNavGraphViewModelsFragment_to_navGraphViewModelsTwoFragment"
-                app:destination="@id/navGraphViewModelsTwoFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/navGraphViewModelsTwoFragment"
-            android:name="com.example.navgraphviewmodelproject.navGraphViewModels.NavGraphViewModelsTwoFragment"
-            android:label="fragment_nav_graph_view_models_two"
-            tools:layout="@layout/fragment_nav_graph_view_models_two" />
-    </navigation>
+
+
+    <include app:graph="@navigation/sub_nav_graph" />
+
 </navigation>

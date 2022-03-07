@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Este gráfico de navegación está por separado para
+ser el que se vincula con el NavGraphViewModel. ya que si no,
+los fragments podrían meterse directamente en nav_graph.xml
+sin necesidad del include -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sub_nav_graph"
+    app:startDestination="@id/byNavGraphViewModelsFragment">
+    <fragment
+        android:id="@+id/byNavGraphViewModelsFragment"
+        android:name="com.example.navgraphviewmodelproject.navGraphViewModels.NavGraphViewModelsFragment"
+        tools:layout="@layout/fragment_nav_graph_view_models"
+        android:label="fragment_by_nav_graph_view_models">
+        <action
+            android:id="@+id/action_byNavGraphViewModelsFragment_to_navGraphViewModelsTwoFragment"
+            app:destination="@id/navGraphViewModelsTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navGraphViewModelsTwoFragment"
+        android:name="com.example.navgraphviewmodelproject.navGraphViewModels.NavGraphViewModelsTwoFragment"
+        tools:layout="@layout/fragment_nav_graph_view_models_two"
+        android:label="fragment_nav_graph_view_models_two" />
+</navigation>

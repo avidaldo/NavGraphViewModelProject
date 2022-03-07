@@ -3,7 +3,7 @@ package com.example.navgraphviewmodelproject.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class VMViewModel: ViewModel() {
+class ViewModel: ViewModel() {
 
     val sampleText = MutableLiveData("")
 }

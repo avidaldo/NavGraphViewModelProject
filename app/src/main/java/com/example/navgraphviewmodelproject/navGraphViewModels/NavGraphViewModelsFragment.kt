@@ -11,11 +11,16 @@ import com.example.navgraphviewmodelproject.databinding.FragmentNavGraphViewMode
 
 
 class NavGraphViewModelsFragment : Fragment(R.layout.fragment_nav_graph_view_models) {
-
     private lateinit var binding: FragmentNavGraphViewModelsBinding
-    private val navGraphViewModel by navGraphViewModels<NavGraphViewModel>(R.id.navigation_sub_navgraph) {
-        defaultViewModelProviderFactory
-    }
+
+
+    /** El ciclo de vida de navGraphViewModels tiene como ámbito la el navGraph,
+     * mantendrá el viewModel al pasar al fragment destino, pero no al regresar a
+     * MainFragment. */
+    private val navGraphViewModel
+            by navGraphViewModels<NavGraphViewModel>(R.id.sub_nav_graph) {
+                defaultViewModelProviderFactory
+            }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentNavGraphViewModelsBinding.bind(view)
@@ -28,8 +33,8 @@ class NavGraphViewModelsFragment : Fragment(R.layout.fragment_nav_graph_view_mod
             navGraphViewModel.sampleText.postValue(it.toString())
         }
 
-        navGraphViewModel.sampleText.observe(viewLifecycleOwner, {
+        navGraphViewModel.sampleText.observe(viewLifecycleOwner) {
             binding.tvVm.text = it
-        })
+        }
     }
 }
