@@ -1,4 +1,4 @@
-package com.example.navgraphviewmodelproject.activityViewModels
+package com.example.navgraphviewmodelproject.scopedActivity
 
 import android.os.Bundle
 import android.view.View
@@ -6,11 +6,12 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.navgraphviewmodelproject.R
-import com.example.navgraphviewmodelproject.databinding.FragmentActivityViewModelsBinding
+import com.example.navgraphviewmodelproject.ViewModel
+import com.example.navgraphviewmodelproject.databinding.FragmentScopedActivityBinding
 
 
-class ActivityViewModelsFragment : Fragment(R.layout.fragment_activity_view_models) {
-    private lateinit var binding: FragmentActivityViewModelsBinding
+class ScopedActivityFragment : Fragment(R.layout.fragment_scoped_activity) {
+    private lateinit var binding: FragmentScopedActivityBinding
 
     /** El ciclo de vida de activityViewModels tiene como ámbito la activity,
      * así que cuando el fragment es destruido, el viewmodel se mantiene. Por eso
@@ -19,11 +20,11 @@ class ActivityViewModelsFragment : Fragment(R.layout.fragment_activity_view_mode
      * es útil para compartir datos entre multiples fragments. Del mismo
      * modo, si después de estar en MainFragment volvemos a este fragment
      * se sigue manteniendo. */
-    private val activityVM by activityViewModels<ActivityViewModel>()
+    private val activityVM by activityViewModels<ViewModel>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = FragmentActivityViewModelsBinding.bind(view)
+        binding = FragmentScopedActivityBinding.bind(view)
 
         binding.etVm.doAfterTextChanged {
             activityVM.sampleText.postValue(it.toString())

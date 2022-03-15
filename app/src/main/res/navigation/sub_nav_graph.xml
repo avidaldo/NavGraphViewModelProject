@@ -8,19 +8,19 @@ sin necesidad del include -->
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sub_nav_graph"
-    app:startDestination="@id/byNavGraphViewModelsFragment">
+    app:startDestination="@id/scopedNavGraphFragment">
     <fragment
-        android:id="@+id/byNavGraphViewModelsFragment"
-        android:name="com.example.navgraphviewmodelproject.navGraphViewModels.NavGraphViewModelsFragment"
-        tools:layout="@layout/fragment_nav_graph_view_models"
-        android:label="fragment_by_nav_graph_view_models">
+        android:id="@+id/scopedNavGraphFragment"
+        android:name="com.example.navgraphviewmodelproject.scopedNavGraph.ScopedNavGraphFragment"
+        tools:layout="@layout/fragment_scoped_nav_graph"
+        android:label="fragment_scoped_nav_graph">
         <action
-            android:id="@+id/action_byNavGraphViewModelsFragment_to_navGraphViewModelsTwoFragment"
-            app:destination="@id/navGraphViewModelsTwoFragment" />
+            android:id="@+id/action_scoped_nav_graph_fragment_to_fragment_scoped_nav_graph_two"
+            app:destination="@id/scopedNavGraphTwoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/navGraphViewModelsTwoFragment"
-        android:name="com.example.navgraphviewmodelproject.navGraphViewModels.NavGraphViewModelsTwoFragment"
-        tools:layout="@layout/fragment_nav_graph_view_models_two"
-        android:label="fragment_nav_graph_view_models_two" />
+        android:id="@+id/scopedNavGraphTwoFragment"
+        android:name="com.example.navgraphviewmodelproject.scopedNavGraph.ScopedNavGraphTwoFragment"
+        tools:layout="@layout/fragment_scoped_nav_graph_two"
+        android:label="fragment_scoped_nav_graph_two" />
 </navigation>

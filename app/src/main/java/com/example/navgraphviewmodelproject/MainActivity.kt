@@ -20,7 +20,4 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFrag.navController
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
 }

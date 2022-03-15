@@ -6,18 +6,19 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.navgraphviewmodelproject.activityViewModels.ActivityViewModel
+import androidx.navigation.navGraphViewModels
 import com.example.navgraphviewmodelproject.databinding.FragmentMainBinding
-import com.example.navgraphviewmodelproject.viewModels.ViewModel
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private lateinit var binding: FragmentMainBinding
+
     private val vmViewModel by viewModels<ViewModel>()
-    private val activityVM by activityViewModels<ActivityViewModel>()
-//    private val navGraphViewModel by navGraphViewModels<NavGraphViewModel>(R.id.navigation_sub_navgraph) {
-//        defaultViewModelProviderFactory
-//    }
+    private val activityVM by activityViewModels<ViewModel>()
+
+    private val navGraphViewModel by navGraphViewModels<ViewModel>(R.id.nav_graph) {
+        defaultViewModelProviderFactory
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentMainBinding.bind(view)
@@ -32,16 +33,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             binding.tvActivityVm.text = it
         }
 
-//        navGraphViewModel.sampleText.observe(viewLifecycleOwner, {
-//            binding.tvNavgraphVm.text = it
-//        })
+        navGraphViewModel.sampleText.observe(viewLifecycleOwner) {
+            binding.tvNavgraphVm.text = it
+        }
 
         binding.btnByViewmodels.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_byViewModelsFragment)
+            findNavController().navigate(R.id.action_mainFragment_to_scopedFragmentFragment)
         }
 
         binding.btnByActivityViewmodels.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_byActivityViewModelsFragment)
+            findNavController().navigate(R.id.action_mainFragment_to_scopedActivityFragment)
         }
 
         binding.btnByNavgraphViewmodels.setOnClickListener {

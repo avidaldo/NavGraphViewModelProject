@@ -11,25 +11,36 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_byViewModelsFragment"
-            app:destination="@id/byViewModelsFragment" />
+            android:id="@+id/action_mainFragment_to_scopedFragmentFragment"
+            app:destination="@id/scopedFragmentFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_byActivityViewModelsFragment"
-            app:destination="@id/byActivityViewModelsFragment" />
+            android:id="@+id/action_mainFragment_to_scopedActivityFragment"
+            app:destination="@id/scopedActivityFragment" />
         <action
             android:id="@+id/action_mainFragment_to_navigation_sub_navgraph"
             app:destination="@id/sub_nav_graph" />
     </fragment>
     <fragment
-        android:id="@+id/byViewModelsFragment"
-        android:name="com.example.navgraphviewmodelproject.viewModels.ViewModelsFragment"
-        android:label="fragment_by_view_models"
-        tools:layout="@layout/fragment_view_models" />
+        android:id="@+id/scopedFragmentFragment"
+        android:name="com.example.navgraphviewmodelproject.scopedFragment.ScopedFragmentFragment"
+        android:label="fragment_scoped_fragment"
+        tools:layout="@layout/fragment_scoped_fragment" >
+        <action
+            android:id="@+id/action_scopedFragment_to_scopedFragmentTwo"
+            app:destination="@id/scopedFragmentTwoFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/byActivityViewModelsFragment"
-        android:name="com.example.navgraphviewmodelproject.activityViewModels.ActivityViewModelsFragment"
-        android:label="fragment_by_activity_view_models"
-        tools:layout="@layout/fragment_activity_view_models" />
+        android:id="@+id/scopedFragmentTwoFragment"
+        android:name="com.example.navgraphviewmodelproject.scopedFragment.ScopedFragmentTwoFragment"
+        android:label="fragment_scoped_two"
+        tools:layout="@layout/fragment_scoped_fragment_two" />
+
+
+    <fragment
+        android:id="@+id/scopedActivityFragment"
+        android:name="com.example.navgraphviewmodelproject.scopedActivity.ScopedActivityFragment"
+        android:label="fragment_scoped_activity"
+        tools:layout="@layout/fragment_scoped_activity" />
 
 
     <include app:graph="@navigation/sub_nav_graph" />
